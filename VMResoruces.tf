@@ -2,7 +2,7 @@ resource "azurerm_virtual_machine" "vmpawan" {
   name                  = "testetstetestvm"
   resource_group_name   = "TerraformRG"
   location              = "East US"
-  network_interface_ids = [azurerm_network_interface.nic1.id]
+  network_interface_ids = [azurerm_network_interface.pawannic1.id]
   vm_size               = "Standard_DS1_v2"
   storage_os_disk {
     name = "vishnudisk1"
@@ -47,7 +47,7 @@ resource "azurerm_virtual_network" "Pawanvnet1" {
 resource "azurerm_subnet" "pawansubnet1" {
   name                 = "hrmante"
   resource_group_name  = "TerraformRG"
-  virtual_network_name = azurerm_virtual_network.vnet1.name
+  virtual_network_name = azurerm_virtual_network.Pawanvnet1.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
@@ -58,7 +58,7 @@ resource "azurerm_network_interface" "pawannic1" {
 
   ip_configuration {
     name                          = "config111"
-    subnet_id                     = azurerm_subnet.subnet1.id
+    subnet_id                     = azurerm_subnet.pawansubnet1.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id =azurerm_public_ip.public1.id
   }
