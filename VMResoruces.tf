@@ -1,11 +1,11 @@
 resource "azurerm_virtual_machine" "vmpawan1" {
-  name                  = "testetstetestvm"
+  name                  = "testetstetestvmpawan"
   resource_group_name   = "TerraformRG"
   location              = "East US"
   network_interface_ids = [azurerm_network_interface.nic1.id]
   vm_size               = "Standard_DS1_v2"
   storage_os_disk {
-    name = "vishnudisk1"
+    name = "pawandisk1"
     caching = "ReadWrite"
     managed_disk_type = "Standard_LRS"
     create_option = "FromImage"
@@ -45,19 +45,19 @@ resource "azurerm_virtual_network" "vnet1" {
 
 
 resource "azurerm_subnet" "subnet1" {
-  name                 = "hrmante"
+  name                 = "pawabsub"
   resource_group_name  = "TerraformRG"
   virtual_network_name = azurerm_virtual_network.vnet1.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
 resource "azurerm_network_interface" "nic1" {
-  name                = "vishnunic111"
+  name                = "pawannic111"
   location            = "East US"
   resource_group_name = "TerraformRG"
 
   ip_configuration {
-    name                          = "config111"
+    name                          = "config1111"
     subnet_id                     = azurerm_subnet.subnet1.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id =azurerm_public_ip.public1.id
@@ -65,7 +65,7 @@ resource "azurerm_network_interface" "nic1" {
 }
 
 resource "azurerm_public_ip" "public1" {
-  name = "testetstetest-tywteywgjh"
+  name = "testetstetest-tywteywgjhpawan"
   resource_group_name = "TerraformRG"
   location = "East US"
   allocation_method = "Static"
