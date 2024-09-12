@@ -60,7 +60,7 @@ resource "azurerm_network_interface" "pawannic1" {
     name                          = "config111"
     subnet_id                     = azurerm_subnet.pawansubnet1.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id =azurerm_public_ip.public1.id
+    public_ip_address_id =azurerm_public_ip.pawanpublic1.id
   }
 }
 
